@@ -8,18 +8,25 @@ import java.util.Date;
  * @author David Kong
  * @date 2016/11/3.
  */
-public class QuotationModel implements Serializable {
+public class Quote implements Serializable {
     private static final long serialVersionUID = 8621606236816207462L;
 
     private String name;
     // 成交量
     private Long turnover;
+    // 今日开盘价
     private Float open;
+    // 昨日收盘价
     private Float close;
+    // 今日最高价
     private Float high;
+    // 今日最低价
     private Float low;
+    // 当前成交价
     private Float now;
+    // 买一价
     private Float buy;
+    // 卖一价
     private Float sell;
     private Long vol;
     private Float ask1;

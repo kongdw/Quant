@@ -1,9 +1,6 @@
 package com.pbmgo.quotation;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 行情接口
@@ -13,12 +10,18 @@ import java.util.Map;
  */
 public interface IQuotation {
 
+
+    void getQuotation() throws IOException;
+
     /**
-     * 获取行情数据
-     *
+     * 通知观察者
      * @return
      */
-    Map<String, QuotationModel> get(List<String> stockList) throws URISyntaxException, IOException;
+    void notifyObserver();
 
 
+    void registerObserver(QuotationObserver quotationObserver);
+
+
+    void removeObserver(QuotationObserver quotationObserver);
 }
