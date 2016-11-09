@@ -1,4 +1,4 @@
-package com.pbmgo.quotation;
+package com.pbmgo.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,12 +8,12 @@ import java.util.Date;
  * @author David Kong
  * @date 2016/11/3.
  */
-public class Quote implements Serializable {
+public class Quotation implements Serializable {
     private static final long serialVersionUID = 8621606236816207462L;
-
+    private String code;
     private String name;
     // 成交量
-    private Long turnover;
+    private Double turnover;
     // 今日开盘价
     private Float open;
     // 昨日收盘价
@@ -28,7 +28,7 @@ public class Quote implements Serializable {
     private Float buy;
     // 卖一价
     private Float sell;
-    private Long vol;
+    private Double vol;
     private Float ask1;
     private Float ask2;
     private Float ask3;
@@ -49,26 +49,26 @@ public class Quote implements Serializable {
     private Float bid8;
     private Float bid9;
     private Float bid0;
-    private Long bid1Vol;
-    private Long bid2Vol;
-    private Long bid3Vol;
-    private Long bid4Vol;
-    private Long bid5Vol;
-    private Long bid6Vol;
-    private Long bid7Vol;
-    private Long bid8Vol;
-    private Long bid9Vol;
-    private Long bid0Vol;
-    private Long ask1Vol;
-    private Long ask2Vol;
-    private Long ask3Vol;
-    private Long ask4Vol;
-    private Long ask5Vol;
-    private Long ask6Vol;
-    private Long ask7Vol;
-    private Long ask8Vol;
-    private Long ask9Vol;
-    private Long ask0Vol;
+    private Double bid1Vol;
+    private Double bid2Vol;
+    private Double bid3Vol;
+    private Double bid4Vol;
+    private Double bid5Vol;
+    private Double bid6Vol;
+    private Double bid7Vol;
+    private Double bid8Vol;
+    private Double bid9Vol;
+    private Double bid0Vol;
+    private Double ask1Vol;
+    private Double ask2Vol;
+    private Double ask3Vol;
+    private Double ask4Vol;
+    private Double ask5Vol;
+    private Double ask6Vol;
+    private Double ask7Vol;
+    private Double ask8Vol;
+    private Double ask9Vol;
+    private Double ask0Vol;
     private Date date;
 
     public String getName() {
@@ -79,11 +79,11 @@ public class Quote implements Serializable {
         this.name = name;
     }
 
-    public Long getTurnover() {
+    public Double getTurnover() {
         return turnover;
     }
 
-    public void setTurnover(Long turnover) {
+    public void setTurnover(Double turnover) {
         this.turnover = turnover;
     }
 
@@ -143,11 +143,11 @@ public class Quote implements Serializable {
         this.sell = sell;
     }
 
-    public Long getVol() {
+    public Double getVol() {
         return vol;
     }
 
-    public void setVol(Long vol) {
+    public void setVol(Double vol) {
         this.vol = vol;
     }
 
@@ -311,163 +311,163 @@ public class Quote implements Serializable {
         this.bid0 = bid0;
     }
 
-    public Long getBid1Vol() {
+    public Double getBid1Vol() {
         return bid1Vol;
     }
 
-    public void setBid1Vol(Long bid1Vol) {
+    public void setBid1Vol(Double bid1Vol) {
         this.bid1Vol = bid1Vol;
     }
 
-    public Long getBid2Vol() {
+    public Double getBid2Vol() {
         return bid2Vol;
     }
 
-    public void setBid2Vol(Long bid2Vol) {
+    public void setBid2Vol(Double bid2Vol) {
         this.bid2Vol = bid2Vol;
     }
 
-    public Long getBid3Vol() {
+    public Double getBid3Vol() {
         return bid3Vol;
     }
 
-    public void setBid3Vol(Long bid3Vol) {
+    public void setBid3Vol(Double bid3Vol) {
         this.bid3Vol = bid3Vol;
     }
 
-    public Long getBid4Vol() {
+    public Double getBid4Vol() {
         return bid4Vol;
     }
 
-    public void setBid4Vol(Long bid4Vol) {
+    public void setBid4Vol(Double bid4Vol) {
         this.bid4Vol = bid4Vol;
     }
 
-    public Long getBid5Vol() {
+    public Double getBid5Vol() {
         return bid5Vol;
     }
 
-    public void setBid5Vol(Long bid5Vol) {
+    public void setBid5Vol(Double bid5Vol) {
         this.bid5Vol = bid5Vol;
     }
 
-    public Long getBid6Vol() {
+    public Double getBid6Vol() {
         return bid6Vol;
     }
 
-    public void setBid6Vol(Long bid6Vol) {
+    public void setBid6Vol(Double bid6Vol) {
         this.bid6Vol = bid6Vol;
     }
 
-    public Long getBid7Vol() {
+    public Double getBid7Vol() {
         return bid7Vol;
     }
 
-    public void setBid7Vol(Long bid7Vol) {
+    public void setBid7Vol(Double bid7Vol) {
         this.bid7Vol = bid7Vol;
     }
 
-    public Long getBid8Vol() {
+    public Double getBid8Vol() {
         return bid8Vol;
     }
 
-    public void setBid8Vol(Long bid8Vol) {
+    public void setBid8Vol(Double bid8Vol) {
         this.bid8Vol = bid8Vol;
     }
 
-    public Long getBid9Vol() {
+    public Double getBid9Vol() {
         return bid9Vol;
     }
 
-    public void setBid9Vol(Long bid9Vol) {
+    public void setBid9Vol(Double bid9Vol) {
         this.bid9Vol = bid9Vol;
     }
 
-    public Long getBid0Vol() {
+    public Double getBid0Vol() {
         return bid0Vol;
     }
 
-    public void setBid0Vol(Long bid0Vol) {
+    public void setBid0Vol(Double bid0Vol) {
         this.bid0Vol = bid0Vol;
     }
 
-    public Long getAsk1Vol() {
+    public Double getAsk1Vol() {
         return ask1Vol;
     }
 
-    public void setAsk1Vol(Long ask1Vol) {
+    public void setAsk1Vol(Double ask1Vol) {
         this.ask1Vol = ask1Vol;
     }
 
-    public Long getAsk2Vol() {
+    public Double getAsk2Vol() {
         return ask2Vol;
     }
 
-    public void setAsk2Vol(Long ask2Vol) {
+    public void setAsk2Vol(Double ask2Vol) {
         this.ask2Vol = ask2Vol;
     }
 
-    public Long getAsk3Vol() {
+    public Double getAsk3Vol() {
         return ask3Vol;
     }
 
-    public void setAsk3Vol(Long ask3Vol) {
+    public void setAsk3Vol(Double ask3Vol) {
         this.ask3Vol = ask3Vol;
     }
 
-    public Long getAsk4Vol() {
+    public Double getAsk4Vol() {
         return ask4Vol;
     }
 
-    public void setAsk4Vol(Long ask4Vol) {
+    public void setAsk4Vol(Double ask4Vol) {
         this.ask4Vol = ask4Vol;
     }
 
-    public Long getAsk5Vol() {
+    public Double getAsk5Vol() {
         return ask5Vol;
     }
 
-    public void setAsk5Vol(Long ask5Vol) {
+    public void setAsk5Vol(Double ask5Vol) {
         this.ask5Vol = ask5Vol;
     }
 
-    public Long getAsk6Vol() {
+    public Double getAsk6Vol() {
         return ask6Vol;
     }
 
-    public void setAsk6Vol(Long ask6Vol) {
+    public void setAsk6Vol(Double ask6Vol) {
         this.ask6Vol = ask6Vol;
     }
 
-    public Long getAsk7Vol() {
+    public Double getAsk7Vol() {
         return ask7Vol;
     }
 
-    public void setAsk7Vol(Long ask7Vol) {
+    public void setAsk7Vol(Double ask7Vol) {
         this.ask7Vol = ask7Vol;
     }
 
-    public Long getAsk8Vol() {
+    public Double getAsk8Vol() {
         return ask8Vol;
     }
 
-    public void setAsk8Vol(Long ask8Vol) {
+    public void setAsk8Vol(Double ask8Vol) {
         this.ask8Vol = ask8Vol;
     }
 
-    public Long getAsk9Vol() {
+    public Double getAsk9Vol() {
         return ask9Vol;
     }
 
-    public void setAsk9Vol(Long ask9Vol) {
+    public void setAsk9Vol(Double ask9Vol) {
         this.ask9Vol = ask9Vol;
     }
 
-    public Long getAsk0Vol() {
+    public Double getAsk0Vol() {
         return ask0Vol;
     }
 
-    public void setAsk0Vol(Long ask0Vol) {
+    public void setAsk0Vol(Double ask0Vol) {
         this.ask0Vol = ask0Vol;
     }
 
@@ -477,5 +477,87 @@ public class Quote implements Serializable {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Quotation quotation = (Quotation) o;
+
+        return code.equals(quotation.code);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return code.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Quotation{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", turnover=" + turnover +
+                ", open=" + open +
+                ", close=" + close +
+                ", high=" + high +
+                ", low=" + low +
+                ", now=" + now +
+                ", buy=" + buy +
+                ", sell=" + sell +
+                ", vol=" + vol +
+                ", ask1=" + ask1 +
+                ", ask2=" + ask2 +
+                ", ask3=" + ask3 +
+                ", ask4=" + ask4 +
+                ", ask5=" + ask5 +
+                ", ask6=" + ask6 +
+                ", ask7=" + ask7 +
+                ", ask8=" + ask8 +
+                ", ask9=" + ask9 +
+                ", ask0=" + ask0 +
+                ", bid1=" + bid1 +
+                ", bid2=" + bid2 +
+                ", bid3=" + bid3 +
+                ", bid4=" + bid4 +
+                ", bid5=" + bid5 +
+                ", bid6=" + bid6 +
+                ", bid7=" + bid7 +
+                ", bid8=" + bid8 +
+                ", bid9=" + bid9 +
+                ", bid0=" + bid0 +
+                ", bid1Vol=" + bid1Vol +
+                ", bid2Vol=" + bid2Vol +
+                ", bid3Vol=" + bid3Vol +
+                ", bid4Vol=" + bid4Vol +
+                ", bid5Vol=" + bid5Vol +
+                ", bid6Vol=" + bid6Vol +
+                ", bid7Vol=" + bid7Vol +
+                ", bid8Vol=" + bid8Vol +
+                ", bid9Vol=" + bid9Vol +
+                ", bid0Vol=" + bid0Vol +
+                ", ask1Vol=" + ask1Vol +
+                ", ask2Vol=" + ask2Vol +
+                ", ask3Vol=" + ask3Vol +
+                ", ask4Vol=" + ask4Vol +
+                ", ask5Vol=" + ask5Vol +
+                ", ask6Vol=" + ask6Vol +
+                ", ask7Vol=" + ask7Vol +
+                ", ask8Vol=" + ask8Vol +
+                ", ask9Vol=" + ask9Vol +
+                ", ask0Vol=" + ask0Vol +
+                ", date=" + date +
+                '}';
     }
 }
