@@ -1,44 +1,47 @@
-import com.pbmgo.entity.Quotation;
-import com.pbmgo.service.RequestTask;
-import com.pbmgo.service.impl.SinaRequestTask;
-import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.HttpClients;
+package com.pbmgo.service.impl;
 
+import com.pbmgo.entity.Quotation;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.util.EntityUtils;
+
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Callable;
 
 /**
  * @author David Kong
- * @date 2016/11/9.
+ * @date 2016/11/8.
  */
-public class Main {
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        HttpClient httpClient = HttpClients.createDefault();
-        Set<String> stocks = new HashSet<>();
-        stocks.add("sh601717");
-        RequestTask<String> requestTask = new SinaRequestTask(httpClient, stocks);
-        AsyncExecutor executor = new ThreadAsyncExecutor();
-        AsyncResult<String> asyncResult = executor.startProcess(requestTask,callback());
-        String result = executor.endProcess(asyncResult);
-        System.out.println(result);
-        System.out.println(asyncResult.getValue());
+public class SinaTask implements Callable<List<Quotation>> {
+
+    private final HttpClient httpClient;
+    private static final String QUOTATION_API = "http://hq.sinajs.cn/";
+    private final Set<String> stocks;
+
+    public SinaTask(HttpClient httpClient, Set<String> stocks) {
+        this.httpClient = httpClient;
+        this.stocks = stocks;
     }
 
-    private static AsyncCallback<String> callback() {
-        return (value, ex) -> {
-            if (ex.isPresent()) {
-                log(" failed: " + ex.map(Exception::getMessage).orElse(""));
-            } else {
-                log(": " + formatResponseData(value));
-            }
-        };
+    public List<Quotation> call() throws IOException {
+        HttpGet request = new HttpGet(getURL());
+        HttpResponse response = httpClient.execute(request);
+        return formatResponseData(response);
     }
-    private static List<Quotation> formatResponseData(String responseData) {
+
+    private String getURL() {
+        return QUOTATION_API + "format=text&list=" + StringUtils.join(stocks.toArray(), ",");
+    }
+
+    private static List<Quotation> formatResponseData(HttpResponse response) throws IOException {
+        String responseData = EntityUtils.toString(response.getEntity());
         List<Quotation> quotations = new ArrayList<Quotation>();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String[] lines = responseData.split("\n");
@@ -86,7 +89,5 @@ public class Main {
         }
         return quotations;
     }
-    private static void log(String msg) {
-        System.out.println(String.format("[%1$-10s] - %2$s", Thread.currentThread().getName(), msg));
-    }
+
 }

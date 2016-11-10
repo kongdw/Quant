@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 即时盘口数据模型
+ * hangq数据模型
  * @author David Kong
  * @date 2016/11/3.
  */
